@@ -7,23 +7,27 @@ html, body {
 body {
   /*margin: 0;
   padding: 0;*/
+  margin-top: 47px;
   background: white;
   font-size: 15px;
   text-align: center;
   font-family: 'Arial';
   color: #999;
+  /*border: 1px solid black;*/
 }
 
 nav {
   background: #222;
-  position: absolute;
+  position: fixed;
   width: 100%;
   top: 0;
   left: 0;
-  padding: 10px;
+  height: 47px;
+  /*padding: 10px;*/
 }
 
 nav li {
+  margin-top: 10px;
   display: inline-block;
   background: #333;
   padding: 5px;
