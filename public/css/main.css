@@ -1,0 +1,32 @@
+body {
+  /*margin: 0;
+  padding: 0;*/
+  background: white;
+  font-size: 15px;
+  text-align: center;
+  font-family: 'Arial';
+  color: #999;
+}
+
+nav {
+  background: #222;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  padding: 10px;
+}
+
+nav li {
+  display: inline-block;
+  background: #333;
+  padding: 5px;
+  margin-left: .5rem;
+  margin-right: .5rem;
+}
+
+nav li a {
+  text-decoration: none;
+  padding: 1rem;
+  color: #999
+}
