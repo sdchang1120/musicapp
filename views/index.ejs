@@ -1,17 +1,26 @@
 <% include ./partials/head.ejs %>
   <nav>
-    <li><a href="#">Home</a></li>
+    <h3>MUSIC APP</h3>
+    <!-- <li><a href="#">Home</a></li>
     <li><a href="#">Sign Up</a></li>
-    <li><a href="#">Log In</a></li>
+    <li><a href="#">Log In</a></li> -->
   </nav>
   <title></title>
 </head>
 <body>
+  <h3>Sign In</h3>
   <form action="index.html" method="post">
-    <input type="text" name="username" placeholder="username">
-    <input type="text" name="first_name" placeholder="first_name">
-    <input type="text" name="last_name" placeholder="last_name">
-    <input type="text" name="email" placeholder="email">
-    <input type="text" name="password" placeholder="password">
+    <input type="text" name="username" placeholder="Username"><br>
+    <input type="text" name="first_name" placeholder="First Name"><br>
+    <input type="text" name="last_name" placeholder="Last Name"><br>
+    <input type="text" name="email" placeholder="E-mail"><br>
+    <input type="text" name="password" placeholder="Password"><br>
+    <button>Sign Up</button>
+  </form>
+  <h3>Log In</h3>
+  <form action="index.html" method="post">
+    <input type="text" name="username" placeholder="Username"><br>
+    <input type="text" name="password" placeholder="Password"><br>
+    <button>Sign Up</button>
   </form>
 <% include ./partials/footer.ejs %>
