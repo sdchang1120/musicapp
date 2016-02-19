@@ -1,5 +1,6 @@
 // REQUIREMENTS
 var mongoose = require('mongoose');
+// var Music = require('./music.js').schema;
 
 // SETTING UP USER SCHEMA
 var userSchema = mongoose.Schema({
@@ -8,7 +9,7 @@ var userSchema = mongoose.Schema({
   last_name: String,
   email: String,
   password: String,
-  playlist: []
+  // playlist: [musicSchema];
 })
 
 var User = mongoose.model('User', userSchema);

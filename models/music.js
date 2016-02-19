@@ -3,9 +3,10 @@ var mongoose = require('mongoose');
 
 // SETTING UP MUSIC SCHEMA
 var musicSchema = mongoose.Schema({
-  title: String,
+  playlist_title: String,
+  song_title: String,
   artist: String,
-  song: String
+  music_link: String
 })
 
 module.exports.Music = Music;
