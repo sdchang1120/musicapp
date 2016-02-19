@@ -1,11 +1,10 @@
 // REQUIREMENTS
-var express   = require('express'),
-    app       = express(),
+var express        = require('express'),
+    app            = express(),
     bodyParser     = require('body-parser'),
     methodOverride = require('method-override'),
     // mongoose  = require('mongoose'),
-    port      = 3000 || process.env.PORT;
-    User = require('./models/users.js').User;
+    port           = 3000 || process.env.PORT;
 
 // SET UP STATIC PUBLIC FILES
 app.use(express.static('public'));
@@ -26,6 +25,9 @@ app.use(methodOverride(function(req, res){
 // CONTROLLERS
 var usersController = require('./controllers/users.js');
 app.use('/users', usersController);
+
+var musicController = require('./controllers/music.js');
+app.use('/music', musicController);
 
 app.get('/', function(req, res) {
 	res.render('index.ejs');
