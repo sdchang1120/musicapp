@@ -1,5 +1,6 @@
 // REQUIREMENTS
 var mongoose = require('mongoose');
+var bcrypt   = require('bcrypt-nodejs');
 // var Music = require('./music.js').schema;
 
 // SETTING UP USER SCHEMA
