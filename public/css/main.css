@@ -1,4 +1,10 @@
+@font-face {
+  font-family: 'Open Sans';
+  src: url('/font/OpenSans-Light.ttf');
+}
+
 html, body {
+  font-family: 'Open Sans';
   margin: 0;
   padding: 0;
   height: 100%;
@@ -11,7 +17,7 @@ body {
   background: white;
   font-size: 15px;
   text-align: center;
-  font-family: 'Arial';
+  /*font-family: 'Arial';*/
   color: #999;
   /*border: 1px solid black;*/
 }
@@ -23,7 +29,13 @@ nav {
   top: 0;
   left: 0;
   height: 47px;
+  text-align: left;
   /*padding: 10px;*/
+}
+
+nav h3 {
+  margin-top: 11px;
+  margin-left: 10px;
 }
 
 nav li {
