@@ -73,7 +73,7 @@ nav li a {
 }
 
 input {
-  background: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.25);
   border: none;
   border-radius: 3px;
   padding: 10px;
