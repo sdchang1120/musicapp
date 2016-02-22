@@ -9,5 +9,8 @@
   <title></title>
 </head>
 <body>
-  <a href="/users/<%=id%>/new">Add New Playlist</a>
+  <a href="/users/<%=id%>/newlist">Add New Playlist</a>
+  <% for (var i=0; i < playlist.length; i++) { %>
+    <h3><%= playlist[i].playlist_name %></h3>
+  <% } %>
 <% include ../partials/footer.ejs %>
