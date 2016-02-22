@@ -121,6 +121,7 @@ router.get('/:id/:list/editlist', function(req, res) {
   var list = req.params.list;
   User.findById(id, function(err, user) {
     Playlist.findById(list, function(err, playlist) {
+      console.log('MUSIC LIST ARRAY: ', playlist.music);
       res.render('users/editlist.ejs', {user: user, playlist: playlist});
     })
   })
