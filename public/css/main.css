@@ -34,15 +34,15 @@ a:hover {
 }
 
 nav {
-  background: #111;
+  background: #000;
   position: fixed;
   width: 100%;
   top: 0;
   left: 0;
   height: 47px;
   text-align: left;
-  box-shadow: 0 5px 25px 5px rgba(255, 255, 255, 0.2);;
-  opacity: .8;
+  box-shadow: 0 5px 50px 5px rgba(255, 255, 255, 0.2);;
+  opacity: .5;
   /*padding: 10px;*/
 }
 
@@ -73,6 +73,7 @@ nav li a {
 }
 
 input {
+  background: rgba(255, 255, 255, 0.5);
   border: none;
   border-radius: 3px;
   padding: 10px;
@@ -87,15 +88,31 @@ button {
   margin: 10px;
 }
 
+/*#add-song {
+  width: 50px;
+  height: 50px;
+  padding: 5px;
+  border: double 10px rgba(255,255,255,0.3);
+  border-radius: 50px;
+  background: rgba(255,255,255,0.7)
+  background-clip: padding-box;
+}*/
+
 table {
   border-collapse: collapse;
-  background: rgba(255, 255, 255, 0.1);
+  /*background: rgba(255, 255, 255, 0.1);*/
   width: 90%;
   margin: 0 auto;
 }
 
+tr:nth-child(even) {
+  background: rgba(255, 255, 255, 0.1);
+}
+
 td {
-  border: 1px solid rgba(0, 0, 0, 0.5);
+  /*border: 3px solid rgba(0, 0, 0, 0.5);*/
+  border: solid 15px rgba(255,255,255,0.0);
+  background: rgba(255, 255, 255, 0.1);
   padding: 10px;
   width: 50%;
 }
