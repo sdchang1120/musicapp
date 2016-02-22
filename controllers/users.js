@@ -2,14 +2,14 @@ var express = require('express');
 var router = express.Router();
 var User = require('../models/users.js').User;
 var Playlist = require('../models/playlist.js').Playlist;
-// var Music = require('../models/music.js').Music;
+var Music = require('../models/music.js').Music;
 var passport = require('passport');
 
 // INDEX ALL USERS
 router.get('/', function(req, res) {
   res.locals.login = req.isAuthenticated();
   User.find({}, function(err, data) {
-    console.log(data);
+    // console.log(data);
     // renders users index page
     res.render('users/index.ejs', {users: data});
   });
@@ -41,45 +41,66 @@ router.get('/logout', function(req, res) {
   res.redirect('/users');
 });
 
-// SHOW USER ID
+// SHOW USER ID - USER'S PLAYLISTS
 router.get('/:id', isLoggedIn, function(req, res) {
   req.params.id == req.user.id ? res.locals.usertrue = true : res.locals.usertrue = false;
   // find user ID
   User.findById(req.params.id, function(err, user) {
-    // console.log(user.id);
+    // console.log(user.playlist);
     // render user's show page
     res.render('users/show.ejs', user);
   });
 });
 
-router.get('/:id/new', function(req, res) {
+// NEW PLAYLIST FORM
+router.get('/:id/newlist', function(req, res) {
   var id = req.params.id;
   // console.log(id);
   User.findById(id, function(err, user) {
     // console.log(user.id)
-    res.render('users/newplaylist.ejs', user);
+    res.render('users/newlist.ejs', user);
   })
 })
 
-router.get('/:id/newlist/newsong', function(req, res) {
+// NEW SONG FORM
+router.get('/:id/:list', function(req, res) {
   var id = req.params.id;
-  var newSong = new Music(req.body);
-  newSong.save(function(err, song) {
-    console.log(song);
-    User.findByIdAndUpdate(id, {$push: {music: song}}, {new: true}, function(err) {
-      res.redirect('/users/' + id)
+  var list = req.params.list;
+  // console.log(id);
+  User.findById(id, function(err, user) {
+    Playlist.findById(list, function(err, playlist) {
+      // console.log('USER: ', user);
+      // console.log('PLAYLIST: ', playlist);
+      res.render('users/newsong.ejs', {user: user, playlist: playlist});
     })
   })
 })
 
+// POST NEW PLAYLIST NAME
 router.post('/:id/newlist', function(req, res) {
   var id = req.params.id;
   var newPlaylist = new Playlist(req.body);
   newPlaylist.save(function(err, playlist) {
-    console.log(playlist);
+    // console.log('new playlist: ', playlist);
+    // console.log('new playlist id: ', playlist.id);
     User.findByIdAndUpdate(id, {$push: {playlist: newPlaylist}}, {new: true}, function(err) {
-      res.redirect('/users/' + id + '/newlist/newsong');
+      res.redirect('/users/' + id + '/' + playlist.id);
     });
+  })
+})
+
+// POST NEW SONG
+router.post('/:id/:list', function(req, res) {
+  var id = req.params.id;
+  var list = req.params.list;
+  var newMusic = new Music(req.body);
+  newMusic.save(function(err, song) {
+    User.update({_id: id, 'playlist._id': list}, {$push: {'playlist.$.music': song}}, function(err, playlist) {
+      console.log('PLAYLIST: ', playlist);
+    })
+    Playlist.findByIdAndUpdate(list, {$push: {music: newMusic}}, {new: true}, function(err) {
+      res.redirect('/users/' + id +'/' + list);
+    })
   })
 })
 
@@ -96,3 +117,30 @@ function isLoggedIn(req, res, next) {
 }
 
 module.exports = router;
+
+// ==============
+// ARCHIEVED CODE
+// ==============
+
+// router.get('/:id/newlist/newsong', function(req, res) {
+//   var id = req.params.id;
+//   var newSong = new Music(req.body);
+//   newSong.save(function(err, song) {
+//     console.log(song);
+//     User.findByIdAndUpdate(id, {$push: {music: song}}, {new: true}, function(err) {
+//       res.redirect('/users/' + id)
+//     })
+//   })
+// })
+
+// router.get('/:id/:playlist/newsong', function(req, res) {
+//   var id = req.params.id;
+//   var playlist = id.playlist;
+//   var newSong = new Music(req.body);
+//   newSong.save(function(err, song) {
+//     console.log(song);
+//     User.findByIdAndUpdate(id, {$push: {music: song}}, {new: true}, function(err) {
+//       res.redirect('/users/' + id)
+//     })
+//   })
+// })
