@@ -3,6 +3,23 @@
   src: url('/font/OpenSans-Light.ttf');
 }
 
+@font-face {
+  font-family: 'Music Buttons';
+  src: url('/font/cart.ttf');
+}
+
+i {
+  font-family: 'Music Buttons';
+  font-style: normal;
+}
+/*
+E800 - Play
+E801 - Pause
+E802 - Stop
+E803 - Prev
+E801 - Next
+*/
+
 html, body {
   font-family: 'Open Sans';
   margin: 0;
@@ -114,5 +131,5 @@ td {
   border: solid 15px rgba(255,255,255,0.0);
   background: rgba(255, 255, 255, 0.1);
   padding: 10px;
-  width: 50%;
+  width: 33.33%;
 }
