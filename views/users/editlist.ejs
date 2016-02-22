@@ -10,8 +10,16 @@
 </head>
 <body>
   <a href="/users/<%=user.id%>/<%=playlist.id%>">Back</a>
-  <h3>Edit Playlist Name</h3>
-  <form action="index.html" method="post">
-
+  <h3>Edit Playlist</h3>
+  <form action="/users/<%=user.id%>/<%=playlist.id%>?_method=PUT" method="POST">
+    <span>Playlist Name: </span>
+    <input type="text" name="playlist_name" value="<%=playlist.playlist_name%>"><br>
+    <% for (var i=0; i < playlist.music.length; i++) { %>
+      <span>Song <%=i+1%>: </span>
+      <input type="text" name="<%=playlist.music[i].song_title%>" value="<%=playlist.music[i].song_title%>">
+      <input type="text" name="<%=playlist.music[i].artist%>" value="<%=playlist.music[i].artist%>">
+      <input type="text" name="<%=playlist.music[i].music_link%>" value="<%=playlist.music[i].music_link%>"><br>
+    <% } %>
+    <button>Update</button>
   </form>
 <% include ../partials/footer.ejs %>
