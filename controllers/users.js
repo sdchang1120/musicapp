@@ -117,7 +117,13 @@ router.post('/:id/:list/newsong', function(req, res) {
 
 // EDIT USER'S PLAYLIST
 router.get('/:id/:list/editlist', function(req, res) {
-
+  var id = req.params.id;
+  var list = req.params.list;
+  User.findById(id, function(err, user) {
+    Playlist.findById(list, function(err, playlist) {
+      res.render('users/editlist.ejs', {user: user, playlist: playlist});
+    })
+  })
 })
 
 // isLoggedIn function
