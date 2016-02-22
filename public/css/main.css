@@ -13,24 +13,36 @@ html, body {
 body {
   /*margin: 0;
   padding: 0;*/
+  background-image: url('http://cdn1.theodysseyonline.com/files/2015/12/20/6358623850982099701625905936_concert%20crowd.jpg');
+  background-size: cover;
   margin-top: 70px;
-  background: #eaeaea;
+  /*background: #111;*/
   font-size: 15px;
   text-align: center;
   /*font-family: 'Arial';*/
-  color: #999;
+  color: white;
   /*border: 1px solid black;*/
 }
 
+a {
+  color: #999;
+  text-decoration: none;
+}
+
+a:hover {
+  color: white;
+}
+
 nav {
-  background: white;
+  background: #111;
   position: fixed;
   width: 100%;
   top: 0;
   left: 0;
   height: 47px;
   text-align: left;
-  box-shadow: 0 5px 25px 5px #ccc;
+  box-shadow: 0 5px 25px 5px rgba(255, 255, 255, 0.25);;
+  opacity: .8;
   /*padding: 10px;*/
 }
 
@@ -58,6 +70,20 @@ nav li a {
   text-decoration: none;
   padding: 1rem;
   color: #999;
+}
+
+input {
+  border: none;
+  padding: 10px;
+  margin: 10px;
+  width: 200px;
+}
+
+button {
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px;
 }
 
 table {

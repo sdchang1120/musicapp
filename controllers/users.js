@@ -42,7 +42,7 @@ router.get('/logout', function(req, res) {
 });
 
 // SHOW USER - ALL PLAYLISTS
-router.get('/:id', isLoggedIn, function(req, res) {
+router.get('/:id', function(req, res) {
   req.params.id == req.user.id ? res.locals.usertrue = true : res.locals.usertrue = false;
   // find user ID
   User.findById(req.params.id, function(err, user) {
@@ -113,6 +113,11 @@ router.post('/:id/:list/newsong', function(req, res) {
       res.redirect('/users/' + id +'/' + list);
     })
   })
+})
+
+// EDIT USER'S PLAYLIST
+router.get('/:id/:list/editlist', function(req, res) {
+
 })
 
 // isLoggedIn function
