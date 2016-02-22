@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    Add New Song
+    <form action="/users/<%=user.id%>/<%=playlist.id%>" method="POST">
+      <input type="text" name="song_title" placeholder="Song Title">
+      <input type="text" name="artist" placeholder="Artist">
+      <input type="text" name="music_link" placeholder="MP3 or Spotify Link">
+      <button>Add New Song</button>
+    </form>
+  </body>
+</html>
