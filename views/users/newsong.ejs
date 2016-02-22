@@ -1,16 +1,19 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-  </head>
-  <body>
-    Add New Song
-    <form action="/users/<%=user.id%>/<%=playlist.id%>" method="POST">
-      <input type="text" name="song_title" placeholder="Song Title">
-      <input type="text" name="artist" placeholder="Artist">
-      <input type="text" name="music_link" placeholder="MP3 or Spotify Link">
-      <button>Add New Song</button>
-    </form>
-  </body>
-</html>
+<% include ../partials/head.ejs %>
+<nav>
+  <h3>MUSIC APP</h3>
+  <!-- <li><a href="#">Home</a></li>
+  <li><a href="#">Sign Up</a></li>
+  <li><a href="#">Log In</a></li> -->
+  <a id="logout" href="/users/logout">logout</a>
+</nav>
+  <title></title>
+</head>
+<body>
+  <h3>Add New Song</h3>
+  <form action="/users/<%=user.id%>/<%=playlist.id%>/newsong" method="POST">
+    <input type="text" name="song_title" placeholder="Song Title"><br>
+    <input type="text" name="artist" placeholder="Artist"><br>
+    <input type="text" name="music_link" placeholder="MP3 or Spotify Link"><br>
+    <button>Add New Song</button>
+  </form>
+<% include ../partials/footer.ejs %>

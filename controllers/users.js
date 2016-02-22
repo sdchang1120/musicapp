@@ -41,7 +41,7 @@ router.get('/logout', function(req, res) {
   res.redirect('/users');
 });
 
-// SHOW USER ID - USER'S PLAYLISTS
+// SHOW USER - ALL PLAYLISTS
 router.get('/:id', isLoggedIn, function(req, res) {
   req.params.id == req.user.id ? res.locals.usertrue = true : res.locals.usertrue = false;
   // find user ID
@@ -52,7 +52,7 @@ router.get('/:id', isLoggedIn, function(req, res) {
   });
 });
 
-// NEW PLAYLIST FORM
+// SHOW USER - NEW PLAYLIST FORM
 router.get('/:id/newlist', function(req, res) {
   var id = req.params.id;
   // console.log(id);
@@ -62,7 +62,7 @@ router.get('/:id/newlist', function(req, res) {
   })
 })
 
-// NEW SONG FORM
+// SHOW USER'S PLAYLIST
 router.get('/:id/:list', function(req, res) {
   var id = req.params.id;
   var list = req.params.list;
@@ -71,12 +71,23 @@ router.get('/:id/:list', function(req, res) {
     Playlist.findById(list, function(err, playlist) {
       // console.log('USER: ', user);
       // console.log('PLAYLIST: ', playlist);
+      res.render('users/showplaylist.ejs', {user: user, playlist: playlist});
+    })
+  })
+})
+
+// SHOW USER'S PLAYLIST - NEW SONG FORM
+router.get('/:id/:list/newsong', function(req, res) {
+  var id = req.params.id;
+  var list = req.params.list;
+  User.findById(id, function(err, user) {
+    Playlist.findById(list, function(err, playlist) {
       res.render('users/newsong.ejs', {user: user, playlist: playlist});
     })
   })
 })
 
-// POST NEW PLAYLIST NAME
+// POST NEW PLAYLIST
 router.post('/:id/newlist', function(req, res) {
   var id = req.params.id;
   var newPlaylist = new Playlist(req.body);
@@ -90,13 +101,13 @@ router.post('/:id/newlist', function(req, res) {
 })
 
 // POST NEW SONG
-router.post('/:id/:list', function(req, res) {
+router.post('/:id/:list/newsong', function(req, res) {
   var id = req.params.id;
   var list = req.params.list;
   var newMusic = new Music(req.body);
   newMusic.save(function(err, song) {
     User.update({_id: id, 'playlist._id': list}, {$push: {'playlist.$.music': song}}, function(err, playlist) {
-      console.log('PLAYLIST: ', playlist);
+      // console.log('PLAYLIST: ', playlist);
     })
     Playlist.findByIdAndUpdate(list, {$push: {music: newMusic}}, {new: true}, function(err) {
       res.redirect('/users/' + id +'/' + list);

@@ -1,6 +1,6 @@
 <% include ../partials/head.ejs %>
   <nav>
-    <h3>MUSIC APP</h3>
+    <h3>MUSIC APP</a>
     <!-- <li><a href="#">Home</a></li>
     <li><a href="#">Sign Up</a></li>
     <li><a href="#">Log In</a></li> -->
@@ -11,6 +11,6 @@
 <body>
   <a href="/users/<%=id%>/newlist">Add New Playlist</a>
   <% for (var i=0; i < playlist.length; i++) { %>
-    <h3><%= playlist[i].playlist_name %></h3>
+    <h3><%= playlist[i].playlist_name %></h3> <a href="/users/<%=id%>/<%=playlist[i].id%>">View</a>
   <% } %>
 <% include ../partials/footer.ejs %>
