@@ -1,7 +1,7 @@
 // REQUIREMENTS
 var mongoose = require('mongoose');
 var bcrypt   = require('bcrypt-nodejs');
-// var Music = require('./music.js').schema;
+var playlistSchema = require('./playlist.js').Playlist.schema;
 
 // SETTING UP USER SCHEMA
 var userSchema = mongoose.Schema({
@@ -10,7 +10,7 @@ var userSchema = mongoose.Schema({
   last_name: String,
   email: String,
   password: String,
-  // playlist: [musicSchema];
+  playlist: [playlistSchema]
 })
 
 // model method - hashing password
