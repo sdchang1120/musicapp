@@ -1,4 +1,6 @@
 <% include ../partials/head.ejs %>
+  <script type="text/javascript" src="/js/jquery-2.2.0.min.js"></script>
+  <script type="text/javascript" src="/js/usersindex.js"></script>
   <nav>
     <h3>MUSIC APP</h3>
     <!-- <li><a href="#">Home</a></li>
@@ -13,6 +15,15 @@
   <title></title>
 </head>
 <body>
+  <% if (login) { %>
+    <h3>See Playlist:</h3>
+    <select>
+      <option value="">-----</option>
+      <% for (var i=0; i < users.length; i++) { %>
+        <option value="/users/<%=users[i]._id%>"><%= users[i].first_name %></option>
+      <% } %>
+    </select>
+  <% } %>
   <% if (!login) { %>
     <h3>Sign Up</h3>
     <form action="/users" method="POST">
