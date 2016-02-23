@@ -1,3 +1,6 @@
+// ====================
+//     REQUIREMENTS
+// ====================
 var express = require('express');
 var router = express.Router();
 var User = require('../models/users.js').User;
@@ -107,7 +110,7 @@ router.post('/:id/:list/newsong', function(req, res) {
 })
 
 // ====================
-//      SHOW PAGE
+//        SHOW
 // ====================
 
 // SHOW USER'S PLAYLISTS
