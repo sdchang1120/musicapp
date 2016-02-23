@@ -62,6 +62,14 @@ router.get('/:id/newlist', function(req, res) {
   })
 })
 
+// // EDIT USER'S PLAYLIST
+// router.get('/:id/editlist', function(req, res) {
+//   var id = req.params.id;
+//   User.findById(id, function(err, user) {
+//     res.render('users/editlist.ejs', {user: user});
+//   })
+// })
+
 // SHOW USER'S PLAYLIST
 router.get('/:id/:list', function(req, res) {
   var id = req.params.id;
@@ -115,15 +123,42 @@ router.post('/:id/:list/newsong', function(req, res) {
   })
 })
 
-// EDIT USER'S PLAYLIST
+// EDIT USER'S PLAYLIST NAME
 router.get('/:id/:list/editlist', function(req, res) {
   var id = req.params.id;
   var list = req.params.list;
   User.findById(id, function(err, user) {
     Playlist.findById(list, function(err, playlist) {
-      console.log('MUSIC LIST ARRAY: ', playlist.music);
+      // console.log('MUSIC LIST ARRAY: ', playlist.music);
       res.render('users/editlist.ejs', {user: user, playlist: playlist});
     })
+  })
+})
+
+router.get('/:id/:list/editlist/blah', function(req, res) {
+  res.send('blah');
+});
+
+// UPDATE USER'S PLAYLIST NAME
+router.put('/:id/:list/newlist', function(req, res) {
+  var id = req.params.id;
+  var list = req.params.list;
+  // updates only playlist schema
+  // User.findById(id, function(err, user) {
+  // //   console.log(user);
+  //   Playlist.findByIdAndUpdate(list, req.body, function(err, playlist) {
+  //     res.redirect('/users/' + id + '/' + list);
+  //   })
+  // })
+  User.findById(id, function(err, user) {
+    console.log(user.playlist);
+    for (var i=0; i < user.playlist.length; i++) {
+      console.log(user.playlist[i]._id);
+      console.log(req.body);
+    }
+    // User.update({_id: id, playlist._id: list}, {$set: {playlist.$.playlist_name: req.body}}, {upsert:true}, function(err) {
+      res.redirect('/users/' + id + '/' + list + '/editlistblah');
+    // })
   })
 })
 
