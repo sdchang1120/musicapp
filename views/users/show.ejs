@@ -11,6 +11,19 @@
 <body>
   <a href="/users/<%=id%>/newlist">Add New Playlist</a>
   <% for (var i=0; i < playlist.length; i++) { %>
-    <h3><%= playlist[i].playlist_name %></h3> <a href="/users/<%=id%>/<%=playlist[i].id%>">View</a>
+    <h3><%= playlist[i].playlist_name %></h3>
+    <a href="/users/<%=id%>/<%=playlist[i].id%>">View</a><br><br>
+    <table>
+      <tr>
+        <td>Song Title</td>
+        <td>Artist</td>
+      </tr>
+      <% for (var j=0; j < playlist[i].music.length; j++) { %>
+        <tr>
+          <td><%= playlist[i].music[j].song_title %></td>
+          <td><%= playlist[i].music[j].artist %></td>
+        </tr>
+      <% } %>
+    </table>
   <% } %>
 <% include ../partials/footer.ejs %>
