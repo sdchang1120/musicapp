@@ -30,5 +30,8 @@
       </tr>
     <% } %>
   </table>
-  <a href="#"><i class="font">&#xE805</i> Playlist</a>
+  <form action="/users/<%=user.id%>/<%=playlist.id%>" method="POST">
+    <input type="hidden" name="_method" value="DELETE">
+    <button><i class="font">&#xE805</i> Playlist</button>
+  </form>
 <% include ../partials/footer.ejs %>
