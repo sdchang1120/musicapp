@@ -17,24 +17,23 @@ i.music {
   font-family: 'Music Fontello';
   font-style: normal;
 }
+/*E800 - Play
+E801 - Pause
+E802 - Stop
+E803 - Prev
+E804 - Next*/
 
 i.font {
   font-family: 'Fontello';
   font-style: normal;
 }
-
 /*
-E800 - Play
-E801 - Pause
-E802 - Stop
-E803 - Prev
-E804 - Next
-E805 - Edit
-E806 - Share - Export
-E807 - Share
-E808 - Trash
-E809 - Trash - Empty
-E80A - X
+E800 - Edit
+E801 - Share - Export
+E802 - Share
+E803 - Trash
+E804 - Trash - Empty
+E805 - X
 */
 
 html, body {
