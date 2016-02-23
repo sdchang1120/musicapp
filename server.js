@@ -8,7 +8,7 @@ var express        = require('express'),
     mongoose  = require('mongoose'),
     passport       = require('passport'),
     session        = require('express-session'),
-    port           = 3000 || process.env.PORT;
+    port           = process.env.PORT || 3000;
 
 // ====================
 //     MIDDLEWARE
@@ -53,7 +53,8 @@ app.use('/music', musicController);
 // ====================
 
 // CONNECT TO MONGO DB MUSIC_APP
-mongoose.connect('mongodb://localhost/music_app');
+var mongoUri = process.env.MONGOLAB_URI || 'mongodb://localhost/music_app';
+mongoose.connect(mongoUri);
 
 // LISTEN ON PORT 3000
 mongoose.connection.once('open', function() {

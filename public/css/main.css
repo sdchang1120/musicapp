@@ -10,7 +10,7 @@
 
 @font-face {
   font-family: 'Fontello';
-  src: url('/font/fontello.ttf');
+  src: url('/font/cart.ttf');
 }
 
 i.music {
@@ -34,6 +34,8 @@ E802 - Share
 E803 - Trash
 E804 - Trash - Empty
 E805 - X
+E806 - small x
+E807 - +
 */
 
 html, body {
@@ -112,13 +114,24 @@ input {
   padding: 10px;
   margin: 10px;
   width: 200px;
+  opacity: .75;
+}
+
+input:hover {
+  opacity: 1;
 }
 
 button {
   border: none;
   border-radius: 5px;
+  background: white;
   padding: 10px;
   margin: 10px;
+  opacity: .5;
+}
+
+button:hover {
+  opacity: .75;
 }
 
 /*#add-song {
@@ -130,6 +143,10 @@ button {
   background: rgba(255,255,255,0.7)
   background-clip: padding-box;
 }*/
+
+.playlist-header li {
+  display: inline-block;
+}
 
 table {
   border-collapse: collapse;
