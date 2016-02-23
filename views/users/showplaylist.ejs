@@ -13,7 +13,7 @@
 
   <h3><%=playlist.playlist_name%></h3>
   <a href="/users/<%=user.id%>/<%=playlist.id%>/newsong">Add New Song</a> |
-  <a href="/users/<%=user.id%>/<%=playlist.id%>/editlist"><i class="font">&#xE805</i> Edit Playlist Name</a><br><br>
+  <a href="/users/<%=user.id%>/<%=playlist.id%>/editlist"><i class="font">&#xE800</i> Edit Playlist Name</a><br><br>
   <table>
     <tr>
       <td></td>
@@ -26,7 +26,7 @@
         <td><a href="<%= playlist.music[i].music_link %>"><i class="music">&#xE800</i></a></td>
         <td><%= playlist.music[i].song_title %></td>
         <td><%= playlist.music[i].artist %></td>
-        <td><a href="<%= playlist.music[i].music_link %>"><i class="font">&#xE805</i></a></td>
+        <td><a href="<%= playlist.music[i].music_link %>"><i class="font">&#xE800</i></a></td>
       </tr>
     <% } %>
   </table>
