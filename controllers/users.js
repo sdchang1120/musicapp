@@ -166,7 +166,13 @@ router.put('/:id/:list', function(req, res) {
 })
 
 // // DELETE PLAYLIST
-// router.delete()
+router.delete('/:id/:list', function(req, res) {
+  var id = req.params.id;
+  var list = req.params.list;
+  User.remove({_id: id, 'playlist._id': list}, function(err, data) {
+    res.redirect('/users/' + id);
+  })
+})
 
 // isLoggedIn function
 // route middleware to make sure a user is logged in

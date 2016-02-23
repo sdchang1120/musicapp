@@ -4,14 +4,25 @@
 }
 
 @font-face {
-  font-family: 'Fontello';
-  src: url('/font/cart.ttf');
+  font-family: 'Music Fontello';
+  src: url('/font/fontello.ttf');
 }
 
-i {
+@font-face {
+  font-family: 'Fontello';
+  src: url('/font/fontello.ttf');
+}
+
+i.music {
+  font-family: 'Music Fontello';
+  font-style: normal;
+}
+
+i.font {
   font-family: 'Fontello';
   font-style: normal;
 }
+
 /*
 E800 - Play
 E801 - Pause
@@ -19,8 +30,11 @@ E802 - Stop
 E803 - Prev
 E804 - Next
 E805 - Edit
-E806 - Share
+E806 - Share - Export
 E807 - Share
+E808 - Trash
+E809 - Trash - Empty
+E80A - X
 */
 
 html, body {
