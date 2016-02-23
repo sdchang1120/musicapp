@@ -5,7 +5,7 @@ var Playlist = require('../models/playlist.js').Playlist;
 var Music = require('../models/music.js').Music;
 var passport = require('passport');
 
-// INDEX ALL USERS
+// INDEX - ALL USERS
 router.get('/', function(req, res) {
   res.locals.login = req.isAuthenticated();
   User.find({}, function(err, data) {
@@ -62,11 +62,23 @@ router.get('/:id/newlist', function(req, res) {
   })
 })
 
-// // EDIT USER'S PLAYLIST
+// EDIT USER'S PLAYLIST
+router.get('/:id/editlist', function(req, res) {
+  var id = req.params.id;
+  User.findById(id, function(err, user) {
+    res.render('users/editlist.ejs', user);
+  })
+})
+
+// // EDIT USER'S PLAYLIST NAME
 // router.get('/:id/editlist', function(req, res) {
 //   var id = req.params.id;
+//   var list = req.params.list;
 //   User.findById(id, function(err, user) {
-//     res.render('users/editlist.ejs', {user: user});
+//     Playlist.findById(list, function(err, playlist) {
+//       // console.log('MUSIC LIST ARRAY: ', playlist.music);
+//       res.render('users/editlist.ejs', {playlist: playlist});
+//     })
 //   })
 // })
 
@@ -123,17 +135,17 @@ router.post('/:id/:list/newsong', function(req, res) {
   })
 })
 
-// EDIT USER'S PLAYLIST NAME
-router.get('/:id/:list/editlist', function(req, res) {
-  var id = req.params.id;
-  var list = req.params.list;
-  User.findById(id, function(err, user) {
-    Playlist.findById(list, function(err, playlist) {
-      // console.log('MUSIC LIST ARRAY: ', playlist.music);
-      res.render('users/editlist.ejs', {user: user, playlist: playlist});
-    })
-  })
-})
+// // EDIT USER'S PLAYLIST NAME
+// router.get('/:id/editlist', function(req, res) {
+//   var id = req.params.id;
+//   var list = req.params.list;
+//   User.findById(id, function(err, user) {
+//     Playlist.findById(list, function(err, playlist) {
+//       // console.log('MUSIC LIST ARRAY: ', playlist.music);
+//       res.render('users/editlist.ejs', {playlist: playlist});
+//     })
+//   })
+// })
 
 router.get('/:id/:list/editlist/blah', function(req, res) {
   res.send('blah');
@@ -150,16 +162,17 @@ router.put('/:id/:list/newlist', function(req, res) {
   //     res.redirect('/users/' + id + '/' + list);
   //   })
   // })
-  User.findById(id, function(err, user) {
-    console.log(user.playlist);
-    for (var i=0; i < user.playlist.length; i++) {
-      console.log(user.playlist[i]._id);
-      console.log(req.body);
-    }
-    // User.update({_id: id, playlist._id: list}, {$set: {playlist.$.playlist_name: req.body}}, {upsert:true}, function(err) {
+  // User.findById(id, function(err, user) {
+  //   console.log(user.playlist);
+  //   for (var i=0; i < user.playlist.length; i++) {
+  //     console.log(user.playlist[i]._id);
+  //     console.log(req.body);
+  //   }
+  console.log(req.body);
+    User.update({_id: id, 'playlist._id': list}, {$set: {'playlist.$.playlist_name': req.body}}, {upsert:true}, function(err) {
       res.redirect('/users/' + id + '/' + list + '/editlistblah');
-    // })
-  })
+    })
+  // })
 })
 
 // isLoggedIn function
