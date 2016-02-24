@@ -88,7 +88,7 @@ router.post('/:id/newlist', function(req, res) {
   newPlaylist.save(function(err, playlist) {
     // console.log('new playlist: ', playlist);
     // console.log('new playlist id: ', playlist.id);
-    User.findByIdAndUpdate(id, {$push: {playlist: newPlaylist}}, {new: true}, function(err) {
+    User.findByIdAndUpdate(req.params.id, {$push: {playlist: newPlaylist}}, {new: true}, function(err) {
       res.redirect('/users/' + req.params.id + '/' + playlist.id);
     });
   });
