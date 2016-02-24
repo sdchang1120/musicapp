@@ -127,6 +127,7 @@ router.get('/:id', function(req, res) {
 
 // SHOW USER'S PLAYLIST
 router.get('/:id/:list', function(req, res) {
+  req.params.id == req.user.id ? res.locals.usertrue = true : res.locals.usertrue = false;
   var id = req.params.id;
   var list = req.params.list;
   // console.log(id);
