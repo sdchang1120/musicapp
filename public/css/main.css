@@ -88,7 +88,7 @@ html, body {
 body {
   /*margin: 0;
   padding: 0;*/
-  background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), url('http://cdn1.theodysseyonline.com/files/2015/12/20/6358623850982099701625905936_concert%20crowd.jpg') no-repeat center;
+  background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), url('/img/concertbg.jpg') no-repeat center;
   background-size: cover;
   background-attachment: fixed;
   margin-top: 70px;
@@ -228,5 +228,5 @@ td {
   border: solid 15px rgba(255,255,255,0.0);
   background: rgba(255, 255, 255, 0.1);
   padding: 10px;
-  width: calc(100%-td.length);
+  width: calc(100%/td.length);
 }
