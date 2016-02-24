@@ -13,6 +13,46 @@
   src: url('/font/cart.ttf');
 }
 
+/* Source: https://daneden.github.io/animate.css/ */
+@keyframes bounceInDown {
+  from, 60%, 75%, 90%, to {
+    animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+  }
+  0% {
+    opacity: 0;
+    transform: translate3d(0, -3000px, 0);
+  }
+  60% {
+    opacity: 1;
+    transform: translate3d(0, 25px, 0);
+  }
+  75% {transform: translate3d(0, -10px, 0);}
+  90% {transform: translate3d(0, 5px, 0);}
+  to {transform: none;}
+}
+
+@-webkit-keyframes bounceInDown {
+  from, 60%, 75%, 90%, to {
+    animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+  }
+  0% {
+    opacity: 0;
+    transform: translate3d(0, -3000px, 0);
+  }
+  60% {
+    opacity: 1;
+    transform: translate3d(0, 25px, 0);
+  }
+  75% {transform: translate3d(0, -10px, 0);}
+  90% {transform: translate3d(0, 5px, 0);}
+  to {transform: none;}
+}
+
+.container {
+  animation: bounceInDown 1s ease-in;
+  -webkit-animation: bounceInDown 1s ease-in;
+}
+
 i.music {
   font-family: 'Music Fontello';
   font-style: normal;
@@ -116,6 +156,10 @@ nav li a {
   color: #999;
 }
 
+.view-user-playlist {
+  /*display: none;*/
+}
+
 input {
   background: rgba(255, 255, 255, 0.25);
   border: none;
@@ -173,5 +217,5 @@ td {
   border: solid 15px rgba(255,255,255,0.0);
   background: rgba(255, 255, 255, 0.1);
   padding: 10px;
-  width: 25%;
+  width: calc(100%-td.length);
 }
