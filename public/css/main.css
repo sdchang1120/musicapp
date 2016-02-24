@@ -197,6 +197,17 @@ button:hover {
   background-clip: padding-box;
 }*/
 
+.delete-song {
+  padding: 0;
+  margin: 0;
+  background: none;
+  color: #999;
+}
+
+.delete-song:hover {
+  color: white;
+}
+
 .playlist-header li {
   display: inline-block;
 }
