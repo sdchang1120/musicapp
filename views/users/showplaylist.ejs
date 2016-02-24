@@ -32,8 +32,13 @@
         <td><%= playlist.music[i].song_title %></td>
         <td><%= playlist.music[i].artist %></td>
         <% if (usertrue) { %>
-          <td><a href="<%= playlist.music[i].music_link %>"><i class="font">&#xE800</i></a></td>
-          <td><a href="<%= playlist.music[i].music_link %>"><i class="font">&#xE805</i></a></td>
+          <td><a href="/users/<%=user.id%>/<%=playlist.id%>/<%=playlist.music[i]._id%>/edit"><i class="font">&#xE800</i></a></td>
+          <td>
+            <form action="/users/<%=user.id%>/<%=playlist.id%>/<%=playlist.music[i]._id%>?_method=DELETE" method="POST" type="hidden">
+              <input type="hidden" value="<%=playlist.music[i]._id%>">
+              <button class="delete-song"><i class="font">&#xE805</i></button>
+            </form>
+          </td>
         <% } %>
       </tr>
     <% } %>
