@@ -4,36 +4,37 @@
     <a id="logout" href="/users/logout">Logout</a>
   <% } %>
   </nav>
-  <script type="text/javascript" src="/js/jquery-2.2.0.min.js"></script>
   <script type="text/javascript" src="/js/usersindex.js"></script>
   <!-- <script type="text/javascript" src="/js/main.js"></script> -->
   <title></title>
 </head>
 <body>
-  <% if (login) { %>
-    <h3>See Playlist:</h3>
-    <select>
-      <option value="">-----</option>
-      <% for (var i=0; i < users.length; i++) { %>
-        <option value="/users/<%=users[i]._id%>"><%= users[i].first_name %></option>
-      <% } %>
-    </select>
-  <% } %>
-  <% if (!login) { %>
-    <h3>Sign Up</h3>
-    <form action="/users" method="POST">
-      <input type="text" name="username" placeholder="Username"><br>
-      <input type="text" name="first_name" placeholder="First Name"><br>
-      <input type="text" name="last_name" placeholder="Last Name"><br>
-      <input type="text" name="email" placeholder="E-mail"><br>
-      <input type="text" name="password" placeholder="Password"><br>
-      <button>Sign Up</button>
-    </form>
-    <h3>Log In</h3>
-    <form action="/users/login" method="POST">
-      <input type="text" name="username" placeholder="Username"><br>
-      <input type="text" name="password" placeholder="Password"><br>
-      <button>Log In</button>
-    </form>
-  <% } %>
+	<div class="container">
+	  <% if (login) { %>
+	    <h3>See Playlist:</h3>
+	    <select>
+	      <option value="">-----</option>
+	      <% for (var i=0; i < users.length; i++) { %>
+	        <option value="/users/<%=users[i]._id%>"><%= users[i].first_name %></option>
+	      <% } %>
+	    </select>
+	  <% } %>
+	  <% if (!login) { %>
+	    <h3>Sign Up</h3>
+	    <form action="/users" method="POST">
+	      <input type="text" name="username" placeholder="Username"><br>
+	      <input type="text" name="first_name" placeholder="First Name"><br>
+	      <input type="text" name="last_name" placeholder="Last Name"><br>
+	      <input type="text" name="email" placeholder="E-mail"><br>
+	      <input type="text" name="password" placeholder="Password"><br>
+	      <button>Sign Up</button>
+	    </form>
+	    <h3>Log In</h3>
+	    <form action="/users/login" method="POST">
+	      <input type="text" name="username" placeholder="Username"><br>
+	      <input type="text" name="password" placeholder="Password"><br>
+	      <button>Log In</button>
+	    </form>
+	  <% } %>
+	</div>
 <% include ../partials/footer.ejs %>
