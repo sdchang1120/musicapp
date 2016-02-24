@@ -5,11 +5,13 @@
 </head>
 <body>
   <a href="/users">Back</a><br><br>
-  <a href="/users/<%=user.id%>/newlist"><i class="font">&#xE807</i> Playlist</a>
+  <% if (usertrue) { %>
+    <a href="/users/<%=user.id%>/newlist"><i class="font">&#xE807</i> Playlist</a>
+  <% } %>
   <% for (var i=0; i < user.playlist.length; i++) { %>
     <div class="playlist-header">
-      <li><h3><%= user.playlist[i].playlist_name %></h3></li>
-      <li><a href="/users/<%=user.id%>/<%=user.playlist[i].id%>">View</a><li>
+      <li><h3 class="user-playlist"><%= user.playlist[i].playlist_name %></h3></li>
+      <li><a class="view-user-playlist" href="/users/<%=user.id%>/<%=user.playlist[i].id%>">View</a><li>
     </div>
     <table>
       <tr>
