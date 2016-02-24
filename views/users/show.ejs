@@ -5,21 +5,21 @@
 </head>
 <body>
   <a href="/users">Back</a><br><br>
-  <a href="/users/<%=id%>/newlist"><i class="font">&#xE807</i> Playlist</a>
-  <% for (var i=0; i < playlist.length; i++) { %>
+  <a href="/users/<%=user.id%>/newlist"><i class="font">&#xE807</i> Playlist</a>
+  <% for (var i=0; i < user.playlist.length; i++) { %>
     <div class="playlist-header">
-      <li><h3><%= playlist[i].playlist_name %></h3></li>
-      <li><a href="/users/<%=id%>/<%=playlist[i].id%>">View</a><li>
+      <li><h3><%= user.playlist[i].playlist_name %></h3></li>
+      <li><a href="/users/<%=user.id%>/<%=user.playlist[i].id%>">View</a><li>
     </div>
     <table>
       <tr>
         <td>Song Title</td>
         <td>Artist</td>
       </tr>
-      <% for (var j=0; j < playlist[i].music.length; j++) { %>
+      <% for (var j=0; j < user.playlist[i].music.length; j++) { %>
         <tr>
-          <td><%= playlist[i].music[j].song_title %></td>
-          <td><%= playlist[i].music[j].artist %></td>
+          <td><%= user.playlist[i].music[j].song_title %></td>
+          <td><%= user.playlist[i].music[j].artist %></td>
         </tr>
       <% } %>
     </table>

@@ -33,7 +33,7 @@ router.get('/json', function(req, res) {
 //    AUTHENTICATION
 // ====================
 
-// SIGNUP
+// SIGNUP - NEW USER
 router.post('/', passport.authenticate('local-signup', {
   failureRedirect : '/users' // redirect back to the signup page if there is an error
 }), function(req, res) {
@@ -116,11 +116,12 @@ router.post('/:id/:list/newsong', function(req, res) {
 // SHOW USER'S PLAYLISTS
 router.get('/:id', function(req, res) {
   req.params.id == req.user.id ? res.locals.usertrue = true : res.locals.usertrue = false;
+  var id = req.params.id;
   // find user ID
-  User.findById(req.params.id, function(err, user) {
+  User.findById(id, function(err, user) {
     // console.log(user.playlist);
     // render user's show page
-    res.render('users/show.ejs', user);
+    res.render('users/show.ejs', {user: user});
   });
 });
 
@@ -137,6 +138,19 @@ router.get('/:id/:list', function(req, res) {
     })
   })
 })
+
+// router.get('/:id/:list', function(req, res) {
+//   var id = req.params.id;
+//   var list = req.params.list;
+//   // console.log(id);
+//   User.findById(id, function(err, user) {
+//     Playlist.findById(list, function(err, playlist) {
+//       // console.log('USER: ', user);
+//       // console.log('PLAYLIST: ', playlist);
+//       res.render('users/showplaylist.ejs', {user: user, playlist: playlist});
+//     })
+//   })
+// })
 
 // ====================
 //         EDIT
