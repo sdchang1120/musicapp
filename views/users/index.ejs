@@ -1,18 +1,12 @@
 <% include ../partials/head.ejs %>
+  <!-- if login is true -->
+	<% if (login) { %>
+    <a id="logout" href="/users/logout">Logout</a>
+  <% } %>
+  </nav>
   <script type="text/javascript" src="/js/jquery-2.2.0.min.js"></script>
   <script type="text/javascript" src="/js/usersindex.js"></script>
   <!-- <script type="text/javascript" src="/js/main.js"></script> -->
-  <nav>
-    <h3>MUSIC APP</h3>
-    <!-- <li><a href="#">Home</a></li>
-    <li><a href="#">Sign Up</a></li>
-    <li><a href="#">Log In</a></li> -->
-
-    <!-- if login is true -->
-		<% if (login) { %>
-      <a id="logout" href="/users/logout">logout</a>
-    <% } %>
-  </nav>
   <title></title>
 </head>
 <body>
