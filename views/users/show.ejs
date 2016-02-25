@@ -8,7 +8,8 @@
 </head>
 <body>
   <div class="fade-in">
-    <a href="/users">Back</a><br><br>
+    <a href="/users">Back</a><br>
+    <h2><%=user.first_name%>'s Playlists</h2>
     <% if (usertrue) { %>
       <a href="/users/<%=user.id%>/newlist"><i class="font">&#xE807</i> Playlist</a>
     <% } %>
