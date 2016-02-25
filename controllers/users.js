@@ -62,7 +62,7 @@ router.get('/:id/newlist', function(req, res) {
   // console.log(id);
   User.findById(req.params.id, function(err, user) {
     // console.log(user.id)
-    res.render('users/newlist.ejs', user);
+    res.render('users/newlist.ejs', {user: user});
   });
 });
 
