@@ -45,6 +45,8 @@ app.get('/', function(req, res) {
 // CONTROLLERS
 var usersController = require('./controllers/users.js');
 app.use('/users', usersController);
+var playlistController = require('./controllers/playlist.js');
+app.use('/playlist', playlistController);
 var musicController = require('./controllers/music.js');
 app.use('/music', musicController);
 
