@@ -7,10 +7,12 @@
   <title></title>
 </head>
 <body>
-  <a href="/users/<%=user.id%>">Back</a>
-  <h3>Add New Playlist</h3>
-  <form action="/users/<%=user.id%>/newlist" method="POST">
-    <input type="text" name="playlist_name" placeholder="Playlist Name">
-    <button>Add</button>
-  </form>
+  <div class="fade-in">
+    <a href="/users/<%=user.id%>">Back</a>
+    <h3>Add New Playlist</h3>
+    <form action="/users/<%=user.id%>/newlist" method="POST">
+      <input type="text" name="playlist_name" placeholder="Playlist Name">
+      <button>Add</button>
+    </form>
+  </div>
 <% include ../partials/footer.ejs %>

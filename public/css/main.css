@@ -53,6 +53,40 @@
   -webkit-animation: bounceInDown 1s ease-in;
 }
 
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.fadeIn {
+  animation-name: fadeIn;
+}
+
+
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.fadeIn {
+  animation-name: fadeIn;
+}
+
+.fade-in {
+  animation-name: fadeIn .5s ease-in;
+  -webkit-animation: fadeIn .5s ease-in;
+}
+
 i.music {
   font-family: 'Music Fontello';
   font-style: normal;
