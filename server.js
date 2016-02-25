@@ -42,6 +42,10 @@ app.get('/', function(req, res) {
 	res.redirect('/users');
 });
 
+app.get('/about', function(req, res) {
+    res.render('about.ejs');
+})
+
 // CONTROLLERS
 var usersController = require('./controllers/users.js');
 app.use('/users', usersController);

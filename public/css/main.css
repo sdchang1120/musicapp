@@ -247,16 +247,19 @@ input:hover {
 }
 
 button {
-  border: none;
+  border: 1px solid #cecece;
   border-radius: 5px;
-  background: white;
+  background: transparent;
   padding: 10px;
   margin: 10px;
-  opacity: .5;
+  opacity: .75;
+  color: #cecece;
 }
 
 button:hover {
-  opacity: .75;
+  /*opacity: .75;*/
+  border: 1px solid white;
+  color: white;
 }
 
 /*#add-song {
@@ -274,20 +277,24 @@ button:hover {
   margin: 0;
   background: none;
   color: #999;
+  border: none;
 }
 
 .delete-song:hover {
   color: white;
+  border: none;
 }
 
 .delete-playlist {
   background: none;
   color: #eaeaea;
   font-size: 15px;
+  border: none;
 }
 
 .delete-playlist:hover {
   color: white;
+  /*border: none;*/
 }
 
 .playlist-header li {

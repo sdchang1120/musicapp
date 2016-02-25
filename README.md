@@ -1,9 +1,9 @@
-# Music App
-[click here] ()
+# P·USIC·IFY
+[click here] (https://pure-fjord-76372.herokuapp.com/)
 
 # Description
 
-Full CRUD music app that will save music into playlists.
+A simple Spotify-friendly music app that allows you to save music into playlists.
 
 # Tech used / Stack
 
@@ -16,19 +16,24 @@ Full CRUD music app that will save music into playlists.
 
 # Features
 
-* Responsiveness
+* Complete RESTful routes with 3 models (Users, Playlists, Music)
 * User Authentication & Restrictions
- * Sign-up / Log-in / Log-out
- * Logged-in user can only edit / delete user's playlists
+ * Sign-up / Log-in / Log-out with encrypted passwords
+ * Logged-in user can only edit / delete own playlists
 * UI / Interaction
- * Sign-in / Log-in bounces from top of page when page loads
+ * Page animations
  * Opacity changes on hover for input boxes
+* Responsive
 
 # Future Implementations
 
 * Search playlists
 * Integrate Spotify API
 * Sort Playlists
+* Ability to add music locally
+* Share playlists and songs with friends
+* Create playlists based on your mood
+* See what users around your location are listening to
 
 # Credit
 
