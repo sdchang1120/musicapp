@@ -18,7 +18,7 @@ router.get('/', function(req, res) {
   User.find({}, function(err, data) {
     // console.log(data);
     // renders users index page
-    res.render('users/index.ejs', {users: data});
+    res.render('users/index.ejs', {users: data, userLogin: req.user});
   });
 });
 
@@ -62,7 +62,7 @@ router.get('/:id/newlist', function(req, res) {
   // console.log(id);
   User.findById(req.params.id, function(err, user) {
     // console.log(user.id)
-    res.render('users/newlist.ejs', {user: user});
+    res.render('users/newlist.ejs', {user: user, userLogin: req.user});
   });
 });
 
@@ -72,7 +72,7 @@ router.get('/:id/:list/newsong', function(req, res) {
   // var list = req.params.list;
   User.findById(req.params.id, function(err, user) {
     Playlist.findById(req.params.list, function(err, playlist) {
-      res.render('users/newsong.ejs', {user: user, playlist: playlist});
+      res.render('users/newsong.ejs', {user: user, playlist: playlist, userLogin: req.user});
     });
   });
 });
@@ -115,13 +115,14 @@ router.post('/:id/:list/newsong', function(req, res) {
 
 // SHOW USER'S PLAYLISTS
 router.get('/:id', function(req, res) {
+  // console.log(req.user.first_name);
   req.params.id == req.user.id ? res.locals.usertrue = true : res.locals.usertrue = false;
   // var id = req.params.id;
   // find user ID
   User.findById(req.params.id, function(err, user) {
     // console.log(user.playlist);
     // render user's show page
-    res.render('users/show.ejs', {user: user});
+    res.render('users/show.ejs', {user: user, userLogin: req.user});
   });
 });
 
@@ -129,7 +130,7 @@ router.get('/:id', function(req, res) {
 router.get('/:id/profile', function(req, res) {
   req.params.id == req.user.id ? res.locals.usertrue = true : res.locals.usertrue = false;
   User.findById(req.params.id, function(err, user) {
-    res.render('users/profile.ejs', {user: user});
+    res.render('users/profile.ejs', {user: user, userLogin: req.user});
   })
 })
 
@@ -143,7 +144,7 @@ router.get('/:id/:list', function(req, res) {
     Playlist.findById(req.params.list, function(err, playlist) {
       // console.log('USER: ', user);
       // console.log('PLAYLIST: ', playlist);
-      res.render('users/showplaylist.ejs', {user: user, playlist: playlist});
+      res.render('users/showplaylist.ejs', {user: user, playlist: playlist, userLogin: req.user});
     });
   });
 });
@@ -183,7 +184,7 @@ router.get('/:id/:list', function(req, res) {
 // EDIT USER'S PROFILE
 router.get('/:id/profile/edit', function(req, res) {
   User.findById(req.params.id, function(err, user) {
-    res.render('users/editprofile.ejs', {user: user});
+    res.render('users/editprofile.ejs', {user: user, userLogin: req.user});
   });
 });
 
@@ -194,7 +195,7 @@ router.get('/:id/:list/editlist', function(req, res) {
   User.findById(req.params.id, function(err, user) {
     Playlist.findById(req.params.list, function(err, playlist) {
       // console.log('MUSIC LIST ARRAY: ', playlist.music);
-      res.render('users/editlist.ejs', {user: user, playlist: playlist});
+      res.render('users/editlist.ejs', {user: user, playlist: playlist, userLogin: req.user});
     });
   });
 });
@@ -214,9 +215,9 @@ router.put('/:id/profile', function(req, res) {
 router.put('/:id/:list', function(req, res) {
   // var id = req.params.id;
   // var list = req.params.list;
-  console.log('USER ID: ', req.params.id);
-  console.log('LIST ID: ', req.params.list);
-  console.log('REQ.BODY: ', req.body);
+  // console.log('USER ID: ', req.params.id);
+  // console.log('LIST ID: ', req.params.list);
+  // console.log('REQ.BODY: ', req.body);
   User.update({_id: req.params.id, 'playlist._id': req.params.list}, {$set: {'playlist.$.playlist_name': req.body.playlist_name}}, function(err) {
   });
   Playlist.findByIdAndUpdate(req.params.list, req.body, function(err, playlist) {
