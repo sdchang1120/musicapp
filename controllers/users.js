@@ -125,6 +125,14 @@ router.get('/:id', function(req, res) {
   });
 });
 
+// SHOW USER'S PROFILE
+router.get('/:id/profile', function(req, res) {
+  req.params.id == req.user.id ? res.locals.usertrue = true : res.locals.usertrue = false;
+  User.findById(req.params.id, function(err, user) {
+    res.render('users/profile.ejs', {user: user});
+  })
+})
+
 // SHOW USER'S PLAYLIST
 router.get('/:id/:list', function(req, res) {
   req.params.id == req.user.id ? res.locals.usertrue = true : res.locals.usertrue = false;
@@ -172,6 +180,13 @@ router.get('/:id/:list', function(req, res) {
 //         EDIT
 // ====================
 
+// EDIT USER'S PROFILE
+router.get('/:id/profile/edit', function(req, res) {
+  User.findById(req.params.id, function(err, user) {
+    res.render('users/editprofile.ejs', {user: user});
+  });
+});
+
 // EDIT USER'S PLAYLIST NAME
 router.get('/:id/:list/editlist', function(req, res) {
   // var id = req.params.id;
@@ -187,6 +202,13 @@ router.get('/:id/:list/editlist', function(req, res) {
 // ====================
 //        UPDATE
 // ====================
+
+// UPDATE USER'S PLAYLIST NAME
+router.put('/:id/profile', function(req, res) {
+  User.findByIdAndUpdate(req.params.id, req.body, function(err) {
+    res.redirect('/users/' + req.params.id + '/profile');
+  });
+});
 
 // UPDATE USER'S PLAYLIST NAME
 router.put('/:id/:list', function(req, res) {

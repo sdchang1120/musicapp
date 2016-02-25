@@ -5,11 +5,11 @@ var playlistSchema = require('./playlist.js').Playlist.schema;
 
 // SETTING UP USER SCHEMA
 var userSchema = mongoose.Schema({
-  username: String,
-  first_name: String,
+  username: {type: String, required: true, unique: true},
+  first_name: {type: String, required: true},
   last_name: String,
   email: String,
-  password: String,
+  password: {type: String, required: true},
   playlist: [playlistSchema]
 })
 

@@ -1,6 +1,6 @@
 <% include ../partials/head.ejs %>
     <div class="right-nav-div">
-      <li><span>Welcome, <%=user.first_name%></span></li>
+      <li><span>Welcome, <a href="/users/<%=user.id%>/profile"><%=user.first_name%></a></span></li>
       <li><a id="logout" href="/users/logout">Logout</a></li>
     </div>
   </nav>

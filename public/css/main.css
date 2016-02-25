@@ -87,6 +87,29 @@
   -webkit-animation: fadeIn .5s ease-in;
 }
 
+.profile {
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  border-radius: 10px;
+  z-index: 1;
+  max-width: 300px;
+  margin: 0 auto;
+  padding: 25px;
+}
+
+.profile h2 {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.profile h4 {
+  margin-bottom: 0px;
+}
+
+.profile-header li {
+  display: inline-block;
+}
+
 i.music {
   font-family: 'Music Fontello';
   font-style: normal;
@@ -202,6 +225,11 @@ nav li a {
 
 .view-user-playlist {
   /*display: none;*/
+}
+
+form > h5 {
+  margin-bottom: 0;
+  padding-bottom: 0;
 }
 
 input {
