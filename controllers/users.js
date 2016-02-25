@@ -197,7 +197,7 @@ router.put('/:id/:list', function(req, res) {
   console.log('REQ.BODY: ', req.body);
   User.update({_id: req.params.id, 'playlist._id': req.params.list}, {$set: {'playlist.$.playlist_name': req.body.playlist_name}}, function(err) {
   });
-  Playlist.findByIdAndUpdate(list, req.body, function(err, playlist) {
+  Playlist.findByIdAndUpdate(req.params.list, req.body, function(err, playlist) {
     res.redirect('/users/' + req.params.id + '/' + req.params.list);
   });
 });
@@ -226,9 +226,27 @@ router.delete('/:id/:list/:song', function(req, res) {
   // var list = req.params.list;
   // var song = req.params.song;
   // console.log(req.body);
+
   User.update({_id: req.params.id, 'playlist._id': req.params.list}, {$pull: {'playlist.$.music': {_id: req.params.song}}}, function(err) {
+  });
+  Playlist.update({_id: req.params.lsit}, {$pull: {'music': {_id: req.params.song}}}, function(err) {
     res.redirect('/users/' + req.params.id + '/' + req.params.list);
   })
+  Music.findByIdAndRemove(req.params.song, function(err) {
+  });
+
+  // User.findOne({_id: req.params.id}).exec(function(err, result) {
+  //   result.playlist._id(req.params.list).music._id(req.params.song).remove();
+  //   result.save(function(err) {
+  //   })
+  // });
+  // Playlist.findOne({_id: req.params.list}).exec(function(err, result) {
+  //   result.music._id(req.params.song).remove();
+  //   result.save(function(err) {
+  //     res.redirect('/users');
+  //   })
+  // })
+
   // Playlist.findByIdAndRemove(list, function(err) {
   // });
   // User.update({_id: id}, {$pull: {'playlist': {_id: list}}}, function(err) {
