@@ -208,6 +208,16 @@ button:hover {
   color: white;
 }
 
+.delete-playlist {
+  background: none;
+  color: #eaeaea;
+  font-size: 15px;
+}
+
+.delete-playlist:hover {
+  color: white;
+}
+
 .playlist-header li {
   display: inline-block;
 }
