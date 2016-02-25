@@ -135,13 +135,23 @@ nav h3 {
   letter-spacing: 2px;
 }
 
-#logout {
+.right-nav-div {
   position: absolute;
   top: 11px;
   right: 15px;
 }
 
-nav li {
+.right-nav-div li {
+  display: inline-block;
+}
+
+/*#logout {
+  position: absolute;
+  top: 11px;
+  right: 15px;
+}*/
+
+/*nav li {
   margin-top: 10px;
   display: inline-block;
   background: #333;
@@ -154,7 +164,7 @@ nav li a {
   text-decoration: none;
   padding: 1rem;
   color: #999;
-}
+}*/
 
 .view-user-playlist {
   /*display: none;*/
