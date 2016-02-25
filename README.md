@@ -28,9 +28,11 @@ Full CRUD music app that will save music into playlists.
 
 * Search playlists
 * Integrate Spotify API
+* Sort Playlists
 
 # Credit
 
 * [Background](http://www.pandemicofficial.co.uk/joom/images/demo/bg/concert-crowd.jpg)
+* [Animations] (https://github.com/daneden/animate.css)
 
 # Comments
