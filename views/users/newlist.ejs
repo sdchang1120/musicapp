@@ -1,12 +1,15 @@
 <% include ../partials/head.ejs %>
-    <a id="logout" href="/users/logout">Logout</a>
+    <div class="right-nav-div">
+      <li><span>Welcome, <%=user.first_name%></span></li>
+      <li><a id="logout" href="/users/logout">Logout</a></li>
+    </div>
   </nav>
   <title></title>
 </head>
 <body>
-  <a href="/users/<%=id%>">Back</a>
+  <a href="/users/<%=user.id%>">Back</a>
   <h3>Add New Playlist</h3>
-  <form action="/users/<%=id%>/newlist" method="POST">
+  <form action="/users/<%=user.id%>/newlist" method="POST">
     <input type="text" name="playlist_name" placeholder="Playlist Name">
     <button>Add</button>
   </form>

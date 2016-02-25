@@ -1,7 +1,9 @@
 <% include ../partials/head.ejs %>
   <!-- if login is true -->
 	<% if (login) { %>
-    <a id="logout" href="/users/logout">Logout</a>
+		<div class="right-nav-div">
+			<a id="logout" href="/users/logout">Logout</a>
+		</div>
   <% } %>
   </nav>
   <script type="text/javascript" src="/js/usersindex.js"></script>

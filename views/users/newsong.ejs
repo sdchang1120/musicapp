@@ -1,5 +1,8 @@
 <% include ../partials/head.ejs %>
-    <a id="logout" href="/users/logout">Logout</a>
+    <div class="right-nav-div">
+      <li><span>Welcome, <%=user.first_name%></span></li>
+      <li><a id="logout" href="/users/logout">Logout</a></li>
+    </div>
   </nav>
   <title></title>
 </head>
