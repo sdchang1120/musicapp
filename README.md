@@ -1,6 +1,6 @@
 # C·L·U·D
 
-C·L·U·D, which stands for Create, Listen, Update and Delete is my first CRUD (Create, Read, Update, Delete) app created with Node.js. User can sign up or log in to create a playlist of their favorite music.
+C·L·U·D, which stands for Create, Listen, Update and Delete was my first CRUD (Create, Read, Update, Delete) app created with Node.js in MVC (models, views, controllers) structure. User can sign up or log in to create a playlist of their favorite music.
 
 # Tech used / Stack
 
