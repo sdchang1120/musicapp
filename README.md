@@ -2,7 +2,7 @@
 
 C·L·U·D, which stands for Create, Listen, Update and Delete was my first CRUD (Create, Read, Update, Delete) app created with Node.js in MVC (models, views, controllers) structure. User can sign up or log in to create a playlist of their favorite music.
 
-# Tech used / Stack
+### Tech used / Stack
 
 * HTML / CSS
 * Javascript
@@ -11,7 +11,7 @@ C·L·U·D, which stands for Create, Listen, Update and Delete was my first CRUD
 * Passport.js
 * MongoDB
 
-# Features
+### Features
 
 * Complete RESTful routes with 3 models (Users, Playlists, Music)
 * User Authentication & Restrictions
@@ -22,7 +22,7 @@ C·L·U·D, which stands for Create, Listen, Update and Delete was my first CRUD
  * Opacity changes on hover for input boxes
 * Responsive
 
-# Future Implementations
+### Future Implementations
 
 * Search playlists
 * Integrate Spotify API
@@ -32,9 +32,9 @@ C·L·U·D, which stands for Create, Listen, Update and Delete was my first CRUD
 * Search music based on your mood
 * See what users around your location are listening to
 
-# Credit
+### Credit
 
 * [Background](http://www.pandemicofficial.co.uk/joom/images/demo/bg/concert-crowd.jpg)
 * [Animations] (https://github.com/daneden/animate.css)
 
-# Comments
+### Comments
