@@ -1,0 +1,28 @@
+<% include ../partials/head.ejs %>
+    <div class="right-nav-div">
+      <li><span>Welcome, <a href="/users/<%=userLogin.id%>/profile"><%=userLogin.first_name%></a> | </span></li>
+      <li><a id="logout" href="/users/logout">Logout</a></li>
+    </div>
+  </nav>
+  <title></title>
+</head>
+<body>
+  <div class="fade-in">
+    <a href="/users/<%=user.id%>/profile">Back</a><br><br>
+    <div class="profile">
+      <h2>Edit Profile</h2>
+      <form action="/users/<%=user.id%>/profile" method="POST">
+        <h4>First Name:</h4>
+        <input type="text" name="first_name" value="<%=user.first_name%>"><br>
+        <h4>Last Name:</h4>
+        <input type="text" name="last_name" value="<%=user.last_name%>"><br>
+        <h4>User Name:</h4>
+        <input type="text" name="username" value="<%=user.username%>"><br>
+        <h4>Email:</h4>
+        <input type="text" name="email" value="<%=user.email%>"><br><br>
+        <input type="hidden" name="_method" value="PUT">
+        <button>Update</button>
+      </form>
+    </div>
+  </div>
+<% include ../partials/footer.ejs %>

@@ -1,9 +1,6 @@
-# P·USIC·IFY
-[click here] (https://pure-fjord-76372.herokuapp.com/)
+# C·L·U·D
 
-# Description
-
-A simple Spotify-friendly music app that allows you to save music into playlists.
+C·L·U·D, which stands for Create, Listen, Update and Delete is my first CRUD (Create, Read, Update, Delete) app created with Node.js. User can sign up or log in to create a playlist of their favorite music.
 
 # Tech used / Stack
 
@@ -32,7 +29,7 @@ A simple Spotify-friendly music app that allows you to save music into playlists
 * Sort Playlists
 * Ability to add music locally
 * Share playlists and songs with friends
-* Create playlists based on your mood
+* Search music based on your mood
 * See what users around your location are listening to
 
 # Credit
