@@ -59,7 +59,7 @@ app.use('/music', musicController);
 // ====================
 
 // CONNECT TO MONGO DB MUSIC_APP
-var mongoUri = process.env.MONGOLAB_URI || 'mongodb://localhost/music_app';
+var mongoUri = process.env.MONGOLAB_URI || 'mongodb://localhost/clud_app';
 mongoose.connect(mongoUri);
 
 // LISTEN ON PORT 3000
